@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+.HeaderWrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: #3a678d;
+    min-height: 240px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(0, 0, 0);
+    padding-top: 30px ;
+    background-position: bottom;
+    // background-attachment: fixed;
+    position: relative;
+}
+
+.HeaderTopSide {
+    padding: 0 15%;
+    display: flex;
+    flex: 1;
+}
+
+
+.MainLogo {
+    animation: 0.85s ease-out 0s 1 slideInFromLeft;
+    z-index: 2;
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.NavBar {
+    padding: 5px 15%;
+    background-color: #0086a5;
+    height: 100%;
+    border-radius: 0 0 5px 5px;
+    z-index: 2;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.navBarLinksWrapper > a {
+    font-size: 0.8vw;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.navBarLinksWrapper > a::after {
+    content: ' | ';
+}
+
+@keyframes slideInFromLeft {
+    0% {
+      transform: rotate(-70deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromTop{
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+ 
+ 
+  .MenuShowHideBtn {
+    font-weight: bold;
+    font-size: 4vw;
+    color: #dfffff;
+    cursor: pointer;
+    display: none;
+    padding: 10px;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .MainLogo {
+      height: 50px;
+      width: 50px;
+    }
+
+    .slogan {
+      font-size: 2vw !important;
+    }
+
+    .NavBar > a,
+    .MainHeaderTitle,
+    .mainSlogan  {
+        font-size: 3.5vw !important;
+    }
+
+    .NavBar {
+      animation: 0.65s ease-out 0s 1 slideInFromTop;
+      position: fixed;
+      width: 100%;
+      background-color: #0086a5f5;
+      flex-direction: column;
+      justify-content: center;
+      display: none;
+      padding: 0;
+    }
+
+    .NavBar > a {
+      text-align: left;
+      background-color: #007894;
+      width: 100%;
+      margin-bottom: 5px;
+      padding: 10px 15px;
+      &::after {
+        content: '';
+      }
+    }
+
+    .HeaderWrapper { 
+      min-height: 110px;
+    }
+
+    .MenuShowHideBtn {
+      display: block;
+    }
+  }
+
+  .active {
+    animation: 0.35s ease-out 0s 1 menuLinkTransition;
+  color: #00d2ff !important;
+  display: inline-block;
+  
+  }
+
+
+@keyframes menuLinkTransition {
+    0% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
