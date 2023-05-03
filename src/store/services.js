@@ -2,12 +2,8 @@ import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: 'http://localhost:80/',
-  prepareHeaders: (headers, { getState }) => {
-    // const token = getState().user.token
-    // if (token) {
-    //   headers.set('Authorization', `Bearer ${token}`)
-    // }
-   // headers.set('Content-Type', 'application/json')
+  prepareHeaders: (headers) => {
+    //headers.set('Content-Type', 'application/json');
     return headers
   },
 })
@@ -23,11 +19,18 @@ export const api = createApi({
   endpoints: builder => ({
 
     signUp: builder.mutation({
-      query: body => {
+      query: data => {
+        let formData = new FormData();  
+        formData.append("data", data);
+        JSON.stringify(data)
+       
         return {
+          mode: "cors",
+          enctype: 'multipart/form-data',
           url: 'index.php',
           method: 'POST',
-          body,
+          body: formData
+          
         }
       },
     }),

@@ -4,16 +4,11 @@ import { useSignUpMutation } from '../store/services.js'
 
 function Home() {
 
-    const [logoutTrigger, { isError, isLoading }] = useSignUpMutation()
-
-    const handleLogout = () => {
-        logoutTrigger()
-      }
-
-
+    const [ServerCall, { isError, isLoading }] = useSignUpMutation();
+    let x = JSON.stringify(234234234)
     return (
         <div>
-             <button type="button" onClick= {handleLogout}> Server Call </button>
+             <button type="button" onClick ={() =>  {ServerCall(x)}}> Server Call </button>
 
             HOME
         </div>
